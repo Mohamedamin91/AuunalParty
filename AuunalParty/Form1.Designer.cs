@@ -205,6 +205,7 @@ namespace AuunalParty
             this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 24;
             this.listBox1.Location = new System.Drawing.Point(12, 834);
+            this.listBox1.MultiColumn = true;
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(557, 98);
             this.listBox1.TabIndex = 37;
