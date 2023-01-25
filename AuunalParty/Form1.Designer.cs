@@ -29,6 +29,7 @@ namespace AuunalParty
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +49,8 @@ namespace AuunalParty
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CelebrateBox)).BeginInit();
@@ -122,7 +125,7 @@ namespace AuunalParty
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(707, 341);
+            this.label1.Location = new System.Drawing.Point(707, 314);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(382, 109);
             this.label1.TabIndex = 14;
@@ -159,6 +162,7 @@ namespace AuunalParty
             this.txtfullname.Size = new System.Drawing.Size(103, 24);
             this.txtfullname.TabIndex = 0;
             this.txtfullname.Text = "Full Name";
+            this.txtfullname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 
@@ -250,12 +254,29 @@ namespace AuunalParty
             this.pictureBox10.TabIndex = 24;
             this.pictureBox10.TabStop = false;
             // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCount.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblCount.Location = new System.Drawing.Point(860, 447);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(48, 55);
+            this.lblCount.TabIndex = 25;
+            this.lblCount.Text = "*";
+            this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1813, 934);
+            this.Controls.Add(this.lblCount);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
@@ -314,6 +335,8 @@ namespace AuunalParty
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
