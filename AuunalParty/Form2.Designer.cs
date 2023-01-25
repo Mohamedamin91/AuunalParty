@@ -41,7 +41,7 @@ namespace AuunalParty
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(614, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(677, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(329, 215);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -69,7 +69,7 @@ namespace AuunalParty
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(358, 322);
+            this.label2.Location = new System.Drawing.Point(180, 304);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(763, 42);
             this.label2.TabIndex = 0;
