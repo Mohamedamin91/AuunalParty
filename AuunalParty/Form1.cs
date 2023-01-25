@@ -5,12 +5,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Speech.AudioFormat;
 using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace AuunalParty
 {
@@ -19,8 +21,7 @@ namespace AuunalParty
         Sqlconnection Sqlconn = new Sqlconnection();
         SpeechAudioFormatInfo info = new SpeechAudioFormatInfo(6, AudioBitsPerSample.Sixteen, AudioChannel.Mono);
         SpeechSynthesizer synth = new SpeechSynthesizer();
-
-
+        
 
         SqlDataReader dr;
         SqlDataReader dr2;
@@ -41,11 +42,13 @@ namespace AuunalParty
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            label1.Font = new Font("Arial", 125, FontStyle.Bold);
         }
+
 
         private void btncheck_Click(object sender, EventArgs e)
         {
+            
             string Celebrationemoje = "\uD83C\uDF89";
             string Sadnessemoje = "☹️";
             SqlParameter paramCompanyID = new SqlParameter("@C1", SqlDbType.Int);
@@ -61,9 +64,9 @@ namespace AuunalParty
                 {
                     randomNumber = random.Next(1, 500);
                     paramWinnerID.Value = randomNumber;
-                    txtfullname.Text = "";
-                    lblmsg.Text = "";
-                    while (dr.Read())
+                    //txtfullname.Text = "";
+                    //lblmsg.Text = "";
+                    //while (dr.Read())
                     {
                        
 
@@ -80,20 +83,18 @@ namespace AuunalParty
                             txtfullname.Text = fullname;
                             Sqlconn.ExecuteQueries("update  prize set selected = 1 where  CandID = @C2 ", paramWinnerID);
                             label1.Text = randomNumber.ToString();
-                            lblmsg.Text = Celebrationemoje + " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' " + Celebrationemoje;
+                            lblmsg.Text =   " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' " ;
                             synth.Speak(lblmsg.Text);
 
                             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\AuunalParty\AuunalParty\award.wav");
                             player.Play();
+                            
 
 
-
+                            }
 
 
                         }
-
-
-                    }
 
                 }
                 else
@@ -116,6 +117,36 @@ namespace AuunalParty
 
                 throw;
             }
+
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
 
         }
     }
