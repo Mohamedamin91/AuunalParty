@@ -10,6 +10,7 @@ using System.Linq;
 using System.Speech.AudioFormat;
 using System.Speech.Synthesis;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Media;
 
@@ -39,6 +40,8 @@ namespace AuunalParty
         {
             InitializeComponent();
             label1.Font = new Font("Arial", 125, FontStyle.Bold);
+         //   Form1 myForm = new Form1();
+           // myForm.Size = new System.Drawing.Size(800, 600);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -161,6 +164,8 @@ namespace AuunalParty
 
 
                             }
+                            Thread.Sleep(1);
+
                             txtfullname.Text = "Full Name";
                             //label1.Text = "Winner";
                         }
