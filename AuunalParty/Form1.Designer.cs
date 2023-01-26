@@ -35,10 +35,8 @@ namespace AuunalParty
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCount = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.txtfullname = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblmsg = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btncheck = new System.Windows.Forms.Button();
@@ -46,7 +44,6 @@ namespace AuunalParty
             this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +64,7 @@ namespace AuunalParty
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(838, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(767, -17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(353, 245);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -86,21 +83,12 @@ namespace AuunalParty
             this.lblCount.Text = "*";
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel2.Controls.Add(this.txtfullname);
-            this.panel2.Location = new System.Drawing.Point(741, 760);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(471, 51);
-            this.panel2.TabIndex = 32;
-            // 
             // txtfullname
             // 
             this.txtfullname.AutoSize = true;
             this.txtfullname.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfullname.ForeColor = System.Drawing.Color.White;
-            this.txtfullname.Location = new System.Drawing.Point(178, 16);
+            this.txtfullname.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txtfullname.Location = new System.Drawing.Point(917, 531);
             this.txtfullname.Name = "txtfullname";
             this.txtfullname.Size = new System.Drawing.Size(103, 24);
             this.txtfullname.TabIndex = 0;
@@ -117,18 +105,7 @@ namespace AuunalParty
             this.label1.Size = new System.Drawing.Size(382, 109);
             this.label1.TabIndex = 31;
             this.label1.Text = " Winner";
-            // 
-            // lblmsg
-            // 
-            this.lblmsg.AutoSize = true;
-            this.lblmsg.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmsg.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblmsg.Location = new System.Drawing.Point(808, 432);
-            this.lblmsg.Name = "lblmsg";
-            this.lblmsg.Size = new System.Drawing.Size(355, 55);
-            this.lblmsg.TabIndex = 30;
-            this.lblmsg.Text = "Congratulations";
-            this.lblmsg.Visible = false;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -155,9 +132,9 @@ namespace AuunalParty
             this.btncheck.BackColor = System.Drawing.Color.MidnightBlue;
             this.btncheck.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncheck.ForeColor = System.Drawing.Color.White;
-            this.btncheck.Location = new System.Drawing.Point(741, 692);
+            this.btncheck.Location = new System.Drawing.Point(741, 693);
             this.btncheck.Name = "btncheck";
-            this.btncheck.Size = new System.Drawing.Size(471, 51);
+            this.btncheck.Size = new System.Drawing.Size(450, 51);
             this.btncheck.TabIndex = 28;
             this.btncheck.Text = "Check the Winner";
             this.btncheck.UseVisualStyleBackColor = false;
@@ -166,9 +143,9 @@ namespace AuunalParty
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1218, -25);
+            this.pictureBox3.Location = new System.Drawing.Point(1197, -2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(591, 836);
+            this.pictureBox3.Size = new System.Drawing.Size(612, 813);
             this.pictureBox3.TabIndex = 34;
             this.pictureBox3.TabStop = false;
             // 
@@ -176,7 +153,7 @@ namespace AuunalParty
             // 
             this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.ColumnWidth = 35;
+            this.listBox1.ColumnWidth = 75;
             this.listBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.ForeColor = System.Drawing.Color.White;
             this.listBox1.FormattingEnabled = true;
@@ -194,12 +171,11 @@ namespace AuunalParty
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1813, 934);
+            this.Controls.Add(this.txtfullname);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.lblCount);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblmsg);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btncheck);
             this.Controls.Add(this.pictureBox1);
@@ -209,8 +185,6 @@ namespace AuunalParty
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -224,10 +198,8 @@ namespace AuunalParty
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCount;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label txtfullname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblmsg;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btncheck;

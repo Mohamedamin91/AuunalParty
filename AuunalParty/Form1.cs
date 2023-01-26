@@ -34,12 +34,13 @@ namespace AuunalParty
         //int max = 5;
         string companyname = "";
         string fullname = "";
+        string lblmsg = "";
 
         List<int> numbers = new List<int>();
         public Form1()
         {
             InitializeComponent();
-            label1.Font = new Font("Arial", 125, FontStyle.Bold);
+            label1.Font = new Font("Arial", 60, FontStyle.Bold);
          //   Form1 myForm = new Form1();
            // myForm.Size = new System.Drawing.Size(800, 600);
         }
@@ -98,16 +99,7 @@ namespace AuunalParty
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (counter > 0)
-            {
-                counter--;
-                lblCount.Text = counter.ToString();
-            }
-            else
-            {
-                timer1.Stop();
-               
-            }
+           
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -155,8 +147,8 @@ namespace AuunalParty
                                 Sqlconn.ExecuteQueries("update  prize set selected = 1 where  CandID = @C2 ", paramWinnerID);
                                 label1.Text = randomNumber.ToString();
                                 listBox1.Items.Add(randomNumber.ToString());
-                                lblmsg.Text = " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' ";
-                                synth.Speak(lblmsg.Text);
+                                lblmsg = " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' ";
+                                synth.Speak(lblmsg);
 
                                 System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\AuunalParty\AuunalParty\award.wav");
                                 player.Play();
@@ -176,7 +168,7 @@ namespace AuunalParty
 
 
                         //  lblMsg.Text = "";
-                        lblmsg.Text = "We are sad to inform you that the scheduled number of prizes has ended... " +
+                        lblmsg = "We are sad to inform you that the scheduled number of prizes has ended... " +
                             " Good luck to those who are not selected this year." +
                             " We look forward to having you with us next year - 2024. " +
                             " Thanks for coming  " + Sadnessemoje;
