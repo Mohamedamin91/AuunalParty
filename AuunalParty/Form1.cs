@@ -115,81 +115,83 @@ namespace AuunalParty
         private void btncheck_Click_1(object sender, EventArgs e)
         {
 
-            timer1 = new Timer();
-            timer1.Interval = 1000; // trigger every 100 milliseconds 
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Start();
-            string Celebrationemoje = "\uD83C\uDF89";
+            //  string Celebrationemoje = "\uD83C\uDF89";
             string Sadnessemoje = "☹️";
             SqlParameter paramCompanyID = new SqlParameter("@C1", SqlDbType.Int);
             SqlParameter paramWinnerID = new SqlParameter("@C2", SqlDbType.Int);
-
-            try
+            if (txtfullname.Text == "Full Name")
             {
-                Sqlconn.OpenConection();
-
-
-                dr = Sqlconn.DataReader("Select * From Prize ");
-                if (dr.HasRows)
+                try
                 {
-                    randomNumber = random.Next(1, 500);
-                    paramWinnerID.Value = randomNumber;
-                    //txtfullname.Text = "";
-                    //lblmsg.Text = "";
-                    //while (dr.Read())
+                    Sqlconn.OpenConection();
+
+
+                    dr = Sqlconn.DataReader("Select * From Prize ");
+                    if (dr.HasRows)
+                    {
+                        randomNumber = random.Next(1, 500);
+                        paramWinnerID.Value = randomNumber;
+                        //txtfullname.Text = "";
+                        //lblmsg.Text = "";
+                        //while (dr.Read())
+                        {
+
+
+                            dr2 = Sqlconn.DataReader("SELECT FullName, company from prize  where    [Gifts]=1   and [Selected]=0   and [Attended] =1  and CandID = @C2 ", paramWinnerID);
+                            if (dr2.HasRows)
+                            {
+                                while (dr2.Read())
+                                {
+                                    fullname = dr2["FullName"].ToString();
+                                    companyname = dr2["company"].ToString();
+                                    paramCompanyID.Value = CompanyID;
+
+                                }
+
+                                txtfullname.Text = fullname;
+                                Sqlconn.ExecuteQueries("update  prize set selected = 1 where  CandID = @C2 ", paramWinnerID);
+                                label1.Text = randomNumber.ToString();
+                                listBox1.Items.Add(randomNumber.ToString());
+                                lblmsg.Text = " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' ";
+                                synth.Speak(lblmsg.Text);
+
+                                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\AuunalParty\AuunalParty\award.wav");
+                                player.Play();
+
+
+
+                            }
+                            txtfullname.Text = "Full Name";
+                            //label1.Text = "Winner";
+                        }
+
+                    }
+                    else
                     {
 
 
-                        dr2 = Sqlconn.DataReader("SELECT FullName, company from prize  where    [Gifts]=1   and [Selected]=0   and [Attended] =1  and CandID = @C2 ", paramWinnerID);
-                        if (dr2.HasRows)
-                        {
-                            while (dr2.Read())
-                            {
-                                fullname = dr2["FullName"].ToString();
-                                companyname = dr2["company"].ToString();
-                                paramCompanyID.Value = CompanyID;
-
-                            }
-
-                            txtfullname.Text = fullname;
-                            Sqlconn.ExecuteQueries("update  prize set selected = 1 where  CandID = @C2 ", paramWinnerID);
-                            label1.Text = randomNumber.ToString();
-                            listBox1.Items.Add(randomNumber.ToString());
-                            lblmsg.Text = " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' ";
-                            synth.Speak(lblmsg.Text);
-
-                            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\AuunalParty\AuunalParty\award.wav");
-                            player.Play();
-
-
-
-                        }
-
+                        //  lblMsg.Text = "";
+                        lblmsg.Text = "We are sad to inform you that the scheduled number of prizes has ended... " +
+                            " Good luck to those who are not selected this year." +
+                            " We look forward to having you with us next year - 2024. " +
+                            " Thanks for coming  " + Sadnessemoje;
+                        // Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg2.ClientID + "');", true);
 
                     }
 
+
                 }
-                else
+                catch (Exception)
                 {
 
-
-                    //  lblMsg.Text = "";
-                    lblmsg.Text = "We are sad to inform you that the scheduled number of prizes has ended... " +
-                        " Good luck to those who are not selected this year." +
-                        " We look forward to having you with us next year - 2024. " +
-                        " Thanks for coming  " + Sadnessemoje;
-                    // Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg2.ClientID + "');", true);
-
+                    throw;
                 }
 
 
-            }
-            catch (Exception)
-            {
 
-                throw;
             }
-
+            else 
+            { }
         }
     }
 }
