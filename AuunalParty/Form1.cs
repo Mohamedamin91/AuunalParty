@@ -21,6 +21,8 @@ namespace AuunalParty
         Sqlconnection Sqlconn = new Sqlconnection();
         SpeechAudioFormatInfo info = new SpeechAudioFormatInfo(6, AudioBitsPerSample.Sixteen, AudioChannel.Mono);
         SpeechSynthesizer synth = new SpeechSynthesizer();
+        System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\AuunalParty\AuunalParty\award.wav");
+
         int counter = 0;
         
 
@@ -40,14 +42,17 @@ namespace AuunalParty
         public Form1()
         {
             InitializeComponent();
-            label1.Font = new Font("Arial", 60, FontStyle.Bold);
-         //   Form1 myForm = new Form1();
-           // myForm.Size = new System.Drawing.Size(800, 600);
+            label1.Font = new Font("Times New Roman", 200, FontStyle.Bold);
+          //  label1.sc = ContentAlignment.MiddleCenter;
+            txtfullname.Font = new Font("Times New Roman", 75, FontStyle.Bold);
+
+            //   Form1 myForm = new Form1();
+            // myForm.Size = new System.Drawing.Size(800, 600);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
             //foreach (Control c in this.Controls)
             //{
             //    if (c is PictureBox)
@@ -55,6 +60,10 @@ namespace AuunalParty
             //        c.Visible = false;
             //    }
             //}
+            TransparetBackground(label1);
+            TransparetBackground(txtfullname);
+
+
         }
 
 
@@ -107,8 +116,30 @@ namespace AuunalParty
 
         }
 
-        private void btncheck_Click_1(object sender, EventArgs e)
+
+
+public void TransparetBackground(Control C)
+{
+    C.Visible = false;
+
+    C.Refresh();
+    Application.DoEvents();
+
+    Rectangle screenRectangle = RectangleToScreen(this.ClientRectangle);
+    int titleHeight = screenRectangle.Top - this.Top;
+    int Right = screenRectangle.Left - this.Left;
+
+    Bitmap bmp = new Bitmap(this.Width, this.Height);
+    this.DrawToBitmap(bmp, new Rectangle(0, 0, this.Width, this.Height));
+    Bitmap bmpImage = new Bitmap(bmp);
+        bmp = bmpImage.Clone(new Rectangle(C.Location.X+Right, C.Location.Y + titleHeight, C.Width, C.Height), bmpImage.PixelFormat);
+    C.BackgroundImage = bmp;
+
+    C.Visible = true;
+}
+    private void btncheck_Click_1(object sender, EventArgs e)
         {
+            
 
             //  string Celebrationemoje = "\uD83C\uDF89";
             string Sadnessemoje = "☹️";
@@ -150,7 +181,6 @@ namespace AuunalParty
                                 lblmsg = " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' ";
                                 synth.Speak(lblmsg);
 
-                                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\AuunalParty\AuunalParty\award.wav");
                                 player.Play();
 
 
@@ -159,7 +189,9 @@ namespace AuunalParty
                             Thread.Sleep(1);
 
                             txtfullname.Text = "Full Name";
+                      
                             //label1.Text = "Winner";
+                            //player.Stop();
                         }
 
                     }
@@ -189,6 +221,21 @@ namespace AuunalParty
             }
             else 
             { }
+        }
+
+        private void txtfullname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
