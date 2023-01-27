@@ -42,7 +42,7 @@ namespace AuunalParty
         public Form1()
         {
             InitializeComponent();
-            label1.Font = new Font("Times New Roman", 200, FontStyle.Bold);
+            label1.Font = new Font("Times New Roman", 260, FontStyle.Bold);
           //  label1.sc = ContentAlignment.MiddleCenter;
             txtfullname.Font = new Font("Times New Roman", 75, FontStyle.Bold);
 
@@ -186,9 +186,9 @@ public void TransparetBackground(Control C)
 
 
                             }
-                            Thread.Sleep(1);
+                           Thread.Sleep(1);
 
-                            txtfullname.Text = "Full Name";
+                           // txtfullname.Text = "Full Name";
                       
                             //label1.Text = "Winner";
                             //player.Stop();
